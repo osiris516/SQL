@@ -3,7 +3,7 @@ SQL Portfolio
 
 --CREATE a Candy Store DataBase
 
-CREATE TABLE Candy_Store(id INTEGER PRIMARY KEY, item TEXT, price INTEGER, quantity INTEGER, total_sold INTEGER);
+CREATE TABLE Candy_Store(id INTEGER PRIMARY KEY, item TEXT, price INTEGER, quantity INTEGER, total_sales INTEGER);
 
 INSERT INTO Candy_Store VALUES (1,"M&M",0.98,34,11);
 INSERT INTO Candy_Store VALUES (2,"Skittles",0.75,65,17);
@@ -26,7 +26,7 @@ SELECT * FROM Candy_Store
 ORDER BY price DESC;
 
 What are the 3 most sold items 
-SELECT item, price, sold 
+SELECT item, price, total_sales
 FROM Candy_Store
-ORDER BY total_sold DESC
+ORDER BY total_sales DESC
 LIMIT 3;
