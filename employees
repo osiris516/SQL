@@ -1,0 +1,22 @@
+CREATE TABLE employees(ID INTEGER, name TEXT, title TEXT,hired_on INTEGER,SALARY INTEGER);
+
+INSERT INTO employees VALUES (1, "demetra","attorney",1202008,50000);
+INSERT INTO employees VALUES (2, "kayla","paralegal",2132009,32000);
+INSERT INTO employees VALUES (3,"amy","attorney",4212012,56000);
+INSERT INTO employees VALUES (4,"ruby","clerk",5012021,30000);
+INSERT INTO employees VALUES (5,"elisa","clerk",4312012,38000);
+INSERT INTO employees VALUES (6,"jaqui","clerk",8122019,40000);
+INSERT INTO employees VALUES (7,"osiris","paralegal",8022019,40000);
+
+
+How to update Kaylay's salary 60,000.
+
+UPDATE employees set salary = 60000
+WHERE id=2;
+SELECT * FROM employees;
+
+How to delete Elisa from the date base after she resgin.
+
+DELETE FROM employees 
+WHERE id= 5;
+SELECT * FROM employees;
