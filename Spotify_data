@@ -1,0 +1,80 @@
+  For this project, I downloaded Spotify data from Kaggle.
+  Then I created a table to insert Spotify data into.
+  Finally, I performed analytics on the data using SQL. 
+
+#Creating the table: 
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL. 
+
+1. HOW to see how many songs are by the artist BTS.
+
+SELECT*
+FROM Spotify 
+WHERE artist_name = 'BTS';
+
+2. HOW TO SHOW artists songs that are at popularity greater than 80 liming results to 5
+
+SELECT *
+FROM Spotifydata
+WHERE POPUlarity >80
+LIMIT 5;
+
+3. How to select track names that have a danceeability greater than 0.50 AND energy greater than 0.70.
+
+SELECT track_name
+FROM Spotifydata
+WHERE danceability >0.50 AND energy > 0.70;
+
+4. How to get the average energy of all the artist where the energy is more than 0.65.
+
+SELECT artist_name,avg(energy)as avg_energy
+FROM Spotifydata
+GROUP BY artist_name
+HAVING avg_energy>0.65;
+
+5. How to see all the artist where they have more than 2 songs logged into the spotify data.
+
+SELECT artist_name
+FROM Spotifydata
+GROUP BY artist_name
+HAVING count(*) >2;
+
+6. how to determine the avg popularity, danceability, and energy by artist and track. 
+
+SELECT
+artist_name
+,track_name
+,avg(popularity)
+,avg(danceability)
+,avg(energy)
+FROM BIT_DB.spotifydata
+GROUP BY artist_name, track_name
+
+7. how to find the Top 10 artists are by popularity.
+
+SELECT track_name, artist_name, popularity
+FROM BIT_DB.spotifydata
+ORDER BY popularity desc
+LIMIT 10
